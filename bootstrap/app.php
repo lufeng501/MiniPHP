@@ -9,6 +9,7 @@
 
 include_once( __DIR__ . "/autoloader.php");
 include_once( __DIR__ . "/../vendor/autoload.php");
+include_once( __DIR__ . "/../config/define.php");
 
 $loader = new \Example\Psr4AutoloaderClass;
 

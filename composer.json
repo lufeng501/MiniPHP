@@ -1,5 +1,6 @@
 {
     "require": {
-        "monolog/monolog": "^1.22"
+        "monolog/monolog": "^1.22",
+        "twig/twig": "~1.0"
     }
 }

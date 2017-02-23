@@ -22,8 +22,18 @@ class IndexController
         $log = new Logger('test');
         $log->pushHandler(new StreamHandler('/data/logs/monolog.log', Logger::WARNING));
 
-        // add records to the log
         $log->warning('Foo');
         $log->error('Bar');
+    }
+
+    public function twig()
+    {
+        $loader = new \Twig_Loader_Filesystem(ROOT.'/templates');
+        $twig = new \Twig_Environment($loader, array(
+            'cache' => ROOT.'/CompilationCache',
+        ));
+        $twig->clearCacheFiles();
+
+        echo $twig->render('index.html', array('name' => 'Fabien'));
     }
 }
