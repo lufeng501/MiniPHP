@@ -8,6 +8,7 @@
  */
 
 include_once( __DIR__ . "/autoloader.php");
+include_once( __DIR__ . "/../vendor/autoload.php");
 
 $loader = new \Example\Psr4AutoloaderClass;
 
