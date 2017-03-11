@@ -14,7 +14,7 @@ class Dispatch
     {
         $m = !empty($_GET['m']) ? $_GET['m'] : "index";
         $act = !empty($_GET['act']) ? $_GET['act'] : "index";
-        $className = '\\App\\module\\'. ucfirst($m) .'Controller';
+        $className = '\\App\\module\\' . ucfirst($m) . 'Controller';
         $obj = new $className();
         call_user_func(array($obj, $act));
     }

@@ -1,0 +1,17 @@
+{% extends "layout/common.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block head %}
+{{ parent() }}
+<style type="text/css">
+    .important { color: #336699; }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>Index</h1>
+<h3 class="important">
+    Welcome to my adminlte homepage.
+</h3>
+{% endblock %}
