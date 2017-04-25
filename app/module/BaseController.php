@@ -8,13 +8,11 @@
 namespace App\module;
 
 
-use Lib\classlibs\notorm\DB;
 
 class BaseController
 {
     public function __construct()
     {
-        $this->db = DB::getInstance()->init();
     }
 
     /**
