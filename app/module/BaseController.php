@@ -8,8 +8,15 @@
 namespace App\module;
 
 
+use Lib\classlibs\notorm\DB;
+
 class BaseController
 {
+    public function __construct()
+    {
+        $this->db = DB::getInstance()->init();
+    }
+
     /**
      * 使用twig模板引擎渲染页面
      * @param $tpl

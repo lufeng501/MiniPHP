@@ -15,7 +15,7 @@ class MysqlLink
     public function __construct()
     {
         //新建持久化连接
-        $link = mysql_pconnect('localhost:3306', 'root', 'lusion');
+        $link = mysql_connect('localhost:3306', 'root', 'lusion');
         if (!empty($link)) {
             self::$_link = $link;
             //选择数据库
