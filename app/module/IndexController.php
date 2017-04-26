@@ -14,7 +14,7 @@ class IndexController extends BaseController
 {
     public function index()
     {
-        echo "Hello MiniPHP-1.0";
+        echo "Hello MiniPHP-1.0.0";
     }
 
     public function log()
