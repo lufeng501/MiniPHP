@@ -21,48 +21,34 @@ class MysqlController extends BaseController
         parent::__construct();
     }
 
-    public function index()
+    public function mysql()
     {
-//        $sql = "select * from users";
-//        $sql = 'update users set user = "37wan123" where id = 4 limit 1';
-
-//        $user = 'root';
-//        $user = "root ' or '1'#";
-//        $pwd = 'e10adc3949ba59abbe56e057f20f883e';
-//
-//
-//
-//
-//        $data = [
-//            'user' => $user,
-//            'pwd' => $pwd
-//        ];
-//
-//        $sql = "select * from users where `user` = '" . $user . "' and `pwd`= '" . $pwd ."'";
-//        $link = new PdoLink();
-//
-//        $res = $link->preSql();
-//
-//        var_dump($res);
-
-
-//        $link = new MysqlLink();
-//        $link = new MysqliLink();
-//        $res = $link->query($sql);
-//        $res = $link->table('users')->where($data)->get();
-//        $res = $link->
-//        var_dump($res);
+        $sql = "select count(*) from users";
+        $link = new MysqlLink();
+        $res = $link->query($sql);
+        var_dump($res);
     }
 
-    public function notorm()
+    public function mysqli()
     {
-        $lists = $this->db->users()
-            ->select("*");
+        $sql = "select count(*) from users";
+        $link = new MysqliLink();
+        $res = $link->query($sql);
+        var_dump($res);
+    }
 
-        foreach ($lists as $id => $list) {
-            echo "$list[title]\n";
-        }
+    public function pdo()
+    {
+        $sql = "select users.id,users.name,login_logs.client_ip from users left join ( select * from login_logs where id < 10000 ) as login_logs on users.id = login_logs.userid where users.id < 15";
 
-        var_dump($lists);
+        $start = microtime(true);
+        var_dump($start);
+        $link = new PdoLink();
+        $res = $link->query($sql);
+        var_dump($res);
+        $end = microtime(true);
+        var_dump($end);
+        $consume = $end - $start;
+        var_dump($consume);
     }
 }
