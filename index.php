@@ -5,8 +5,11 @@
  * Date: 2017/2/23 14:08
  */
 
-include_once( __DIR__ . "/bootstrap/app.php");
+//include_once( __DIR__ . "/bootstrap/app.php");
+//
+//$app = new \Lib\classlibs\Dispatch();
+//
+//$app->run();
 
-$app = new \Lib\classlibs\Dispatch();
-
-$app->run();
+// 载入框架运行文件
+require('bootstrap/run.php');
