@@ -36,7 +36,7 @@ class App
     }
 
     /**
-     *
+     * 运行
      */
     public function run($className)
     {
@@ -45,10 +45,20 @@ class App
         $requestInstance->routeDispatch();
     }
 
+    /**
+     * 获取单例对象
+     * @param $className
+     * @return mixed
+     */
     public function getSingleInstance($className) {
         return self::$container->getSingleInstance($className);
     }
 
+    /**
+     * 加载实例化
+     * @param $className
+     * @param bool $single
+     */
     public function load($className,$single=false)
     {
         if ($single == true) { // 单例
