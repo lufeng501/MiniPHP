@@ -5,6 +5,8 @@
  * Date: 2017/5/11
  * Time: 17:44
  */
+// 加载配置
+include_once( __DIR__ . "/../config/define.php");
 
 // 自动加载composer类
 require(__DIR__ . "/../vendor/autoload.php");
