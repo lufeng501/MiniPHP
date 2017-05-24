@@ -22,7 +22,7 @@ class Container
     /**
      * 单例实例化
      */
-    public function singleton($className,App $app)
+    public function singleton($className, App $app)
     {
         // 判断是否已经存在单例实例
         if (empty($this->instanceSingleLists[$className])) {
@@ -33,10 +33,25 @@ class Container
     }
 
     /**
+     * 实例化
+     * @param $className
+     * @return bool
+     */
+    public function setSingleInstance($className)
+    {
+        $this->instanceSingleLists[$className] = new $className();
+        return true;
+    }
+
+    /**
      * 获取单例对象实例
      */
     public function getSingleInstance($className)
     {
+        if (!isset($this->instanceSingleLists[$className])) {
+            // 实例化
+            $this->setSingleInstance($className);
+        }
         return $this->instanceSingleLists[$className];
     }
 }
